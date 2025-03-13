@@ -14,6 +14,6 @@ Abrir [http://localhost:3000/home](http://localhost:3000/home) para a tela inici
 
 ```bash
 Projeto contem as seguintes páginas(URL)
-- /Home - (Listagem dos dados na tabela)
+- /home - (Listagem dos dados na tabela)
 - /order-details/ID - (Detalhamento do pedido)
 ```
