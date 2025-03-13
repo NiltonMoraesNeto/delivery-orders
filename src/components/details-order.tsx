@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Order } from '../model/orders';
 import { useNavigate } from 'react-router-dom';
@@ -26,6 +26,14 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
     if (currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
     }
+  };
+
+  const getColorClass = (type?: string) => {
+    return type === 'Pendente'
+      ? 'text-red-500'
+      : type === 'Entregue'
+        ? 'text-green-500'
+        : 'text-yellow-500';
   };
 
   return (
@@ -74,7 +82,9 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-1">
             <label>ID: {order.id}</label>
-            <label>Status: {order.status}</label>
+            <label className={`font-bold ${getColorClass(order.status)}`}>
+              Status: {order.status}
+            </label>
             <label>
               Total: <CurrencyFormatter value={order.total} />
             </label>
