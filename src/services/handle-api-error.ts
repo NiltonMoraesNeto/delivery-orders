@@ -1,5 +1,5 @@
 import { AxiosError, AxiosResponse } from "axios";
-import { isErroRequest } from "../components/response-request";
+import { isErroRequest } from "../utils/response-request";
 
 export const handleError = (error: unknown): AxiosResponse | null => {
   if (error instanceof AxiosError) {

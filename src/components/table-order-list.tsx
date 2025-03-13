@@ -1,32 +1,32 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FileSearch } from "lucide-react";
-import { Order } from "../model/orders";
-import CurrencyFormatter from "./currency-formatter";
-import Badge from "./badge";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FileSearch } from 'lucide-react';
+import { Order } from '../model/orders';
+import CurrencyFormatter from '../utils/currency-formatter';
+import Badge from './badge';
 
 interface TableOrderListProps {
   orders: Order[];
 }
 
 export function TableOrderList({ orders }: TableOrderListProps) {
-  const [filter, setFilter] = useState("");
-  const [statusFilter, setStatusFilter] = useState("");
+  const [filter, setFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
   const navigate = useNavigate();
 
   const filteredOrders = orders?.filter((order) => {
     return (
       (order.customer.name.toLowerCase().includes(filter.toLowerCase()) ||
-        filter === "") &&
+        filter === '') &&
       (order.status.toLowerCase().includes(statusFilter.toLowerCase()) ||
-        statusFilter === "")
+        statusFilter === '')
     );
   });
 
   const formatDateBR = (dateString: string): string => {
     const date = new Date(dateString);
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
@@ -93,9 +93,12 @@ export function TableOrderList({ orders }: TableOrderListProps) {
               </td>
               <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
                 <span>
-                  <Badge text={order.status} type={order.status === "Entregue" ? "success" : "error"} className={`text-xs font-bold`}/>
+                  <Badge
+                    text={order.status}
+                    type={order.status === 'Entregue' ? 'success' : 'error'}
+                    className={`text-xs font-bold`}
+                  />
                 </span>
-                
               </td>
               <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
                 {order.shipping_method}
@@ -115,7 +118,10 @@ export function TableOrderList({ orders }: TableOrderListProps) {
                   type="button"
                   onClick={() => handleNavigateToDetails(order.id)}
                 >
-                  <FileSearch className="text-blue-500 cursor-pointer" aria-label="detailOrder" />
+                  <FileSearch
+                    className="text-blue-500 cursor-pointer"
+                    aria-label="detailOrder"
+                  />
                 </button>
               </td>
             </tr>

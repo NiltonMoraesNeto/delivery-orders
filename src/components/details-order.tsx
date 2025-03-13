@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Order } from '../model/orders';
 import { useNavigate } from 'react-router-dom';
-import CurrencyFormatter from './currency-formatter';
+import CurrencyFormatter from '../utils/currency-formatter';
 
 interface DetailsOrderProps {
   order: Order | null;

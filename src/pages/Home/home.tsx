@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { isSuccessRequest } from "../../components/response-request";
-import { Order } from "../../model/orders";
-import { fetchOrdersList } from "../../services/orders-service";
-import { TableOrderList } from "../../components/table-order-list";
-import Card from "../../components/card";
-import Alert from "../../components/Alert";
+import { useEffect, useState } from 'react';
+import { isSuccessRequest } from '../../utils/response-request';
+import { Order } from '../../model/orders';
+import { fetchOrdersList } from '../../services/orders-service';
+import { TableOrderList } from '../../components/table-order-list';
+import Card from '../../components/card';
+import Alert from '../../components/alert';
 
 export default function Home() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -18,7 +18,7 @@ export default function Home() {
         setError(null);
       } else {
         setOrders([]);
-        setError("Erro ao carregar a listagem");
+        setError('Erro ao carregar a listagem');
       }
     };
     fetchData();
