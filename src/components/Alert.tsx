@@ -21,7 +21,10 @@ const Alert: React.FC<AlertProps> = ({ message, type = "error" }) => {
   };
 
   return (
-    <div className={`border-l-4 p-4 ${getAlertStyles()} rounded-md mb-4`}>
+    <div
+      className={`border-l-4 p-4 ${getAlertStyles()} rounded-md mb-4`}
+      role="alert"
+    >
       <p className="font-bold">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </p>
