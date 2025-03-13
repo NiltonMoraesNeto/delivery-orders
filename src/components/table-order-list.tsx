@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Pencil } from "lucide-react";
+import { FileSearch } from "lucide-react";
 import { Order } from "../model/orders";
 import CurrencyFormatter from "./currency-formatter";
+import Badge from "./badge";
 
 interface TableOrderListProps {
   orders: Order[];
@@ -28,14 +29,6 @@ export function TableOrderList({ orders }: TableOrderListProps) {
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
-  };
-
-  const getColorClass = (type?: string) => {
-    return type === "Pendente"
-      ? "text-red-500"
-      : type === "Entregue"
-        ? "text-green-500"
-        : "text-yellow-500";
   };
 
   const handleNavigateToDetails = (id: string) => {
@@ -99,11 +92,10 @@ export function TableOrderList({ orders }: TableOrderListProps) {
                 {order.customer.name}
               </td>
               <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
-                <span
-                  className={`text-xs font-bold ${getColorClass(order.status)}`}
-                >
-                  {order.status}
+                <span>
+                  <Badge text={order.status} type={order.status === "Entregue" ? "success" : "error"} className={`text-xs font-bold`}/>
                 </span>
+                
               </td>
               <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
                 {order.shipping_method}
@@ -123,7 +115,7 @@ export function TableOrderList({ orders }: TableOrderListProps) {
                   type="button"
                   onClick={() => handleNavigateToDetails(order.id)}
                 >
-                  <Pencil className="text-blue-500" aria-label="detailOrder" />
+                  <FileSearch className="text-blue-500 cursor-pointer" aria-label="detailOrder" />
                 </button>
               </td>
             </tr>
