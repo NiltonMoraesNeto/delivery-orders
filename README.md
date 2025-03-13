@@ -9,7 +9,7 @@ npm run dev
 npm run test
 ```
 
-Abrir [http://localhost:3000/home](http://localhost:3000/home) para a tela inicial
+Abrir [http://localhost:5173/home](http://localhost:5173/home) para a tela inicial
 ##
 
 ```bash
