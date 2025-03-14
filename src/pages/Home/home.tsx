@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-blue-600 text-center">
+      <h1 className="text-3xl font-bold mb-6 text-blue-900 text-center">
         Lista de Pedidos
       </h1>
       {error && <Alert message={error} type="error" />}
