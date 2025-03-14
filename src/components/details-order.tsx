@@ -82,7 +82,7 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
               width={100}
               alt={order.items[currentItemIndex].name}
             />
-            <div className="flex items-center">
+            <div className="flex max-sm:grid items-center">
               <label>
                 Valor:{' '}
                 <CurrencyFormatter
