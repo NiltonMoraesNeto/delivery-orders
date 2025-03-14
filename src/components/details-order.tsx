@@ -40,13 +40,17 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
     <div className="">
       <div className="flex justify-between mb-8 ml-8">
         <h1 className="font-bold">Detalhes do Pedido</h1>
-        <div
-          className="flex justify-start text-blue-500 cursor-pointer"
+        <button
+          aria-label="backToHome"
+          type="button"
           onClick={handleNavigateToHome}
+          className="cursor-pointer"
         >
-          <ArrowLeft />
-          Voltar
-        </div>
+          <span className="flex justify-start text-blue-500">
+            <ArrowLeft className=" cursor-pointer" aria-label="backToHome" />
+            Voltar
+          </span>
+        </button>
       </div>
 
       {order ? (
@@ -57,7 +61,7 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
                 type="button"
                 onClick={handlePreviousItem}
                 disabled={currentItemIndex === 0}
-                aria-label="Item anterior"
+                aria-label="itemAnterior"
                 className={`cursor-pointer mr-2 ${currentItemIndex === 0 ? 'invisible' : 'visible'}`}
               >
                 <ArrowLeft />
@@ -67,7 +71,7 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
                 type="button"
                 onClick={handleNextItem}
                 disabled={currentItemIndex === order.items.length - 1}
-                aria-label="Próximo item"
+                aria-label="proximoItem"
                 className={`cursor-pointer ml-2 ${currentItemIndex === order.items.length - 1 ? 'invisible' : 'visible'}`}
               >
                 <ArrowRight />
