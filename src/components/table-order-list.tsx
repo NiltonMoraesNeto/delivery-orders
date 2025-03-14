@@ -37,7 +37,7 @@ export function TableOrderList({ orders }: TableOrderListProps) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="mb-4 flex flex-col md:flex-row justify-between items-center">
+      <div className="mb-4 flex flex-wrap min-md:flex-row justify-between items-center">
         <input
           type="text"
           placeholder="Buscar por nome do cliente"
