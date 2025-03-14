@@ -119,7 +119,7 @@ export function TableOrderList({ orders }: TableOrderListProps) {
                   onClick={() => handleNavigateToDetails(order.id)}
                 >
                   <FileSearch
-                    className="text-blue-500 cursor-pointer"
+                    className="text-blue-800 cursor-pointer"
                     aria-label="detailOrder"
                   />
                 </button>

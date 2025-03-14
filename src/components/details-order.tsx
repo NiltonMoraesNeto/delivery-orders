@@ -46,7 +46,7 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
           onClick={handleNavigateToHome}
           className="cursor-pointer"
         >
-          <span className="flex justify-start text-blue-500">
+          <span className="flex justify-start text-blue-800">
             <ArrowLeft className=" cursor-pointer" aria-label="backToHome" />
             Voltar
           </span>
