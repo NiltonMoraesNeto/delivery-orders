@@ -82,6 +82,17 @@ export function DetailsOrder({ order }: DetailsOrderProps) {
               width={100}
               alt={order.items[currentItemIndex].name}
             />
+            <div className="flex items-center">
+              <label>
+                Valor:{' '}
+                <CurrencyFormatter
+                  value={order.items[currentItemIndex].price}
+                />
+              </label>
+              <label className="ml-2">
+                Quantidade: {order.items[currentItemIndex].quantity}
+              </label>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-1">
