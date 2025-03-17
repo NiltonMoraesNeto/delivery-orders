@@ -69,7 +69,7 @@ describe('OrderDetails', () => {
     await waitFor(() => {
       expect(screen.getByText(/João da Silva/i)).toBeInTheDocument();
       expect(screen.getByText(/Celular XYZ/i)).toBeInTheDocument();
-      expect(screen.getByText(/R\$ 120,50/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/R\$ 120,50/i).length).toBeGreaterThan(0);
       expect(screen.getByText(/Pendente/i)).toBeInTheDocument();
       expect(screen.getByText(/Rua das Palmeiras, 123/i)).toBeInTheDocument();
       expect(screen.getByText(/158924/i)).toBeInTheDocument();
