@@ -1,14 +1,8 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from './components/header';
 import Sidebar from './components/sidebar';
 import AppRoutes from './routes';
 
 function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate(`/home`);
-  }, []);
   return (
     <div className="flex h-screen flex-col">
       <Header />
